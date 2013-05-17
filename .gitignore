@@ -1,0 +1,45 @@
+# Java specific files to ignore
+*.class
+
+# Java Package Files
+*.jar
+*.war
+*.ear
+
+# Eclipse specific files to ignore
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# More Eclipse stuff to ignore
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# More Eclipse stuff to ignore
+# CDT-specific
+.cproject
+
+# More Eclipse stuff to ignore
+# PDT-specific
+.buildpath
+
+# Linux stuff to ignore
+.*
+!.gitignore
+*~
+
+#
