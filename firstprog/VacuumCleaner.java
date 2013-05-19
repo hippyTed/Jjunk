@@ -1,3 +1,5 @@
+package firstprog;
+
 public class VacuumCleaner {
 	private Motor motor = new Motor();
 	

@@ -1,3 +1,5 @@
+package firstprog;
+
 public class Motor {
 	private int running = 0;
 	
