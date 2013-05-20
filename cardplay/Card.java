@@ -5,8 +5,8 @@ public final class Card {
 				Eight, Nine, Ten, Jack, Queen, King, Ace};
 	enum Suit {Club, Diamond, Heart, Spade};
 	
-	Rank rank;
-	Suit suit;
+	private Rank rank;
+	private Suit suit;
 	
 	Card(Card c) {
 		rank = c.rank;
