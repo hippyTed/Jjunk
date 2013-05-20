@@ -2,39 +2,36 @@ package cardplay;
 
 public class Hand {
 	private Card[] hand = null;
-	private int maxCards = 0;
-	private int cardsLeft = 0;
+	private int cardsInHand = 0;
 	
 	public Hand(int size) {
 		hand = new Card[size];
-		maxCards = size;
-		cardsLeft = 0;
+		cardsInHand = 0;
 	}
 	
 	public int sizeOf() {
-		return cardsLeft;
+		return cardsInHand;
 	}
 
 	public void addCard(Card c) {
-		if (cardsLeft < maxCards) {
+		if (cardsInHand < hand.length) {
 			int where = 0;
-			for (where = 0; where < cardsLeft; where++)
+			for (where = 0; where < cardsInHand; where++)
 				if (hand[where].compareTo(c) > 0)
 					break;
 			
-			for (int i = cardsLeft; i > where; i--)
-				hand[i] = hand[i - 1];
+			for (int i = cardsInHand; i > where; i--)
+				hand[i] = hand[i-1];
 			
 			hand[where] = new Card(c);
-			cardsLeft++;
+			cardsInHand++;
 		}
 		else 
-			System.out.println("My hand already has " 
-				+ cardsLeft + "/" + maxCards + " cards!");
+			System.out.println("Hand already has " + hand.length + " cards!");
 	}
 	
 	private int findCard(Card c) {
-		for (int i = 0; i < cardsLeft; i++) {
+		for (int i = 0; i < cardsInHand; i++) {
 			if (hand[i].isEqual(c)) 
 				return i;
 		}
@@ -44,10 +41,10 @@ public class Hand {
 	public void deleteCard(Card c) {
 		int i = findCard(c);
 		if (i >= 0) {
-			for (int j = i; j < cardsLeft-2; j++)
+			for (int j = i; j < cardsInHand-2; j++)
 				hand[j] = hand[j+1];
-			hand[cardsLeft-1] = null;
-			cardsLeft--;
+			hand[cardsInHand-1] = null;
+			cardsInHand--;
 		}
 		else 
 			System.out.println("I don't have a " + c.toString() + "!");
