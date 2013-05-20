@@ -25,10 +25,7 @@ public final class Card {
 	public int compareTo(Card c) {
 		int suitComp = suit.compareTo(c.suit);
 		
-		if (suitComp == 0) 
-			return rank.compareTo(c.rank);
-		else
-			return suitComp;
+		return (suitComp == 0)? rank.compareTo(c.rank): suitComp;
 	}
 	
 	public final void print() {
