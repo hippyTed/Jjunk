@@ -7,7 +7,7 @@ import cardplay.Card.Suit;
 public class Deck {
 	public static final int cardsInDeck = 52;
 	private int cardsLeft = 0;
-	private Card[] deck = null;
+	private static Card[] deck = null;
 	private Random rand = new Random();
 	
 	public Deck() {
@@ -39,15 +39,16 @@ public class Deck {
 
 	public void cut() {
 		Card[] newDeck = new Card[cardsInDeck];
+
 		int firstHalf = cardsInDeck/4 + rand.nextInt(cardsInDeck/2);
 		int secondHalf = cardsInDeck - firstHalf;
+		
+		for (int i = 0; i < firstHalf; i++)
+			newDeck[secondHalf + i] = deck[i];
 		
 		for (int i = 0; i < secondHalf; i++) 
 			newDeck[i] = deck[firstHalf + i];
 		
-		for (int i = 0; i < firstHalf; i++)
-			newDeck[secondHalf + i] = deck[i];
-
 		deck = newDeck;
 	}
 	
@@ -58,14 +59,13 @@ public class Deck {
 			return c;
 		}
 		else {
-			System.out.println("The deck is empty");
+			System.out.println("The deck is empty!");
 			return null;
 		}
 	}
 		
 	public void print() {
-		for (Card c: deck) {
+		for (Card c: deck)
 			c.print();
-		}
 	}
 }
