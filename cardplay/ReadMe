@@ -1,0 +1,16 @@
+This is not meant to be production code, it is just for playing with
+various features of Java, as I learn how to use them.
+
+Card.java: features enumerated types.
+Deck.java: uses a private static array of cards
+		cutting, shuffling, dealing, printing, seem to work
+Hand.java: uses a private array of cards kept in sorted order
+		adding, deleting, printing, seem to work
+PlayCards.java: uses a new deck, shuffles, cuts and deals to four hands
+
+NB: Despite deck being private static in Deck class, PlayCards can make 
+    a deck of cards and access its methods, and despite the hand array 
+    of cards in Hand class being private, PlayCards can still make an 
+    array of hands and access their methods. Maybe this is ok.
+    But PlayCards can see what card is dealt to each player. This is 
+    not so good.
