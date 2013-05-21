@@ -14,6 +14,7 @@ abstract class Cards {
 		cards.set(index1, cards.get(index2));
 		cards.set(index2, c);
 	}
+
 	public int total() {
 		int total = 0;
 		for (Card c: cards)
@@ -21,7 +22,7 @@ abstract class Cards {
 		return total;
 	}
 	
-	public void print() {
+	protected void print() {
 		for (Card c: cards)
 			c.print();
 	}
