@@ -11,10 +11,7 @@ PlayCards.java:	main() makes a deck of cards, shuffles and cuts it,
 		and contents of each hand. 
 
 The program seems to work, but I notice the shuffling method may not be 
-very good, player4 seems to get the Ace of Spades quite often! 
+very good, player4 rarely seems to get the Ace of Spades! 
 
-There may be a simpler way to impliment cut() if I could work out how to
-pull a block of cards from the ArrayList in one go instead of one at a 
-time. Wish ArrayList.removeRange() could returned such a block.
 Shuffling, cutting, dealing all seemed easier to impliment using ArrayList
 mainly because I no longer needed to keep track of indexes and array sizes.
