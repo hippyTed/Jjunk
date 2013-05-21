@@ -1,6 +1,7 @@
 package cards;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import cards.Card.Rank;
 import cards.Card.Suit;
@@ -30,15 +31,12 @@ public final class Deck extends Cards {
 	}
 
 	public void cut() {
-		ArrayList<Card> newCards = new ArrayList<Card>(cards.size());
 		int firstHalf = cards.size()/4 + rand.nextInt(cards.size()/2);
 
-		for (int i = firstHalf; i < cards.size(); i++)
-			newCards.add(cards.remove(i));
-		while (cards.size() > 0) 
-			newCards.add(cards.remove(0));
+		List<Card> list = cards.subList(firstHalf, cards.size());
+		list.addAll(cards.subList(0, firstHalf));
 		
-		cards = newCards;
+		cards = new ArrayList<Card>(list);
 	}
 	
 	public Card deal() {
