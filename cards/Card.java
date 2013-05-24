@@ -1,6 +1,6 @@
 package cards;
 
-public class Card {
+public class Card implements Comparable<Card> {
 	// How to add 2 Jokers?
 	protected static enum Rank {Two, Three, Four, Five, Six, Seven,
 				Eight, Nine, Ten, Jack, Queen, King, Ace};
@@ -22,10 +22,9 @@ public class Card {
 	protected final boolean isEqual(Card c) {
 		return rank == c.rank && suit == c.suit;
 	}
-	
-	protected int compareTo(Card c) {
+
+	public int compareTo(Card c) {
 		int suitComp = suit.compareTo(c.suit);
-		
 		return (suitComp == 0)? rank.compareTo(c.rank): suitComp;
 	}
 	
@@ -35,5 +34,5 @@ public class Card {
 	
 	public final void print() {
 		System.out.println(rank.toString() + " of " + suit.toString() + "s");
-	}	
+	}
 }

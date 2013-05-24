@@ -9,6 +9,7 @@ public class PlayCards {
 		Deck deck = new Deck();
 		deck.shuffle(SHUFFLE_COUNT);
 		deck.cut();
+	//	deck.print();
 		
 		int cardsEach = Deck.cardsInDeck/PLAYERS;
 		Hand[] hand = new Hand[PLAYERS];
