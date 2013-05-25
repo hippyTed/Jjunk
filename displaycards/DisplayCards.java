@@ -32,22 +32,22 @@ class MainFrame extends JFrame {
 	static final long serialVersionUID = 1L;
 	private static final int FRAME_WIDTH = 900;
 	private static final int FRAME_HEIGHT = 300;
-	private JPanel handPanel;
-	private JPanel buttonPanel;
 	
 	public MainFrame() {
-	
 		PlayCards game = new PlayCards();
 		
 		game.dealCards(PlayCards.PLAYERS);
 		
-		for(int player = 0; player < PlayCards.PLAYERS; player++) {
-			add(new HandComponent());
+		for(int player = 1; player <= PlayCards.PLAYERS; player++) {
+			add(new HandComponent(player));
+			System.out.println("Added Player" + player + "'s hand component!");
 		}
-		
-		buttonPanel = new JPanel();
+
+		JPanel buttonPanel = new JPanel();
+
 		buttonPanel.add(new QuitButton("Quit"));
 		add(buttonPanel);
+		System.out.println("Added Quit button JPanel!");
 		
 		pack();
 	}
@@ -61,14 +61,20 @@ class HandComponent extends JComponent {
 	static final long serialVersionUID = 10L;
 	private static final int HAND_WIDTH = 200;
 	private static final int HAND_HEIGHT = 200;
+	int playerIndex;
 	
+	public HandComponent(int playerNumber) {
+		System.out.println("Making Player" + playerNumber + "'s JComponent!");
+		playerIndex = playerNumber - 1;
+	}
+	
+	// called automatically, on expose events etc
 	public void paintComponent(Graphics g) {		
-		int x = 20;
+		int x = playerIndex*(HAND_WIDTH + 20) + 20;
 		int y = 20;
-		for (Hand h: PlayCards.hand) {
-			g.drawString(h.getHand(), x, y);
-			y += HAND_HEIGHT/4;
-		}
+		final Hand h = PlayCards.hand[playerIndex];
+		g.drawString(h.getHand(), x, y);
+		System.out.println("Drawn Player" + (playerIndex+1) + "'s Component!");
 	}
 	
 	public Dimension getPreferredSize() {
@@ -82,10 +88,12 @@ class QuitButton extends JButton {
 	private static final int BUTTON_HEIGHT = 30;
 
 	QuitButton(String name) {
+		System.out.println("Making JButton(" + name + ")!");
 		JButton button = new JButton(name);
 	
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
+				System.out.println("Button pressed!");
 				System.exit(0);
 			}
 		});
