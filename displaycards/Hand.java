@@ -35,6 +35,6 @@ public final class Hand extends Cards {
 	
 	public String getHand() {
 		return "\n" + cards.size() + " cards, totalling "
-			+ getTotal() + toString();
+			+ getTotal() + "\n" + toString();
 	}
 }
