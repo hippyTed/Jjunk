@@ -1,0 +1,20 @@
+A first attempt to use javax.swing - to display cards
+Took a while to get it working as envisaged, not worth developing
+further. I was getting JFrame and JPanel mixed up to begin with
+but hopefully that's all sorted out now. No attempt has been made
+to set any particular Look&Feel, or Layout Constraints. It just
+relies on default settings.
+
+PlayCards.java now just offers one method, dealCards(int players).
+I doubt I will add any more, this program was more about getting
+to grips with Swing.
+
+Hand.java now has a method getHand() that returns a multi-line
+String summarising the player's hand.
+
+DisplayCards.java displays a window containing a JFrame that holds 
+a JPanel containing four JTextAreas and a "Quit" JButton.
+The JTextAreas display the output of getHand for each player.
+
+There are so many ways this program could be improved, but I'm
+need to move on to something simple but more interactive now.
