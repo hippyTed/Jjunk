@@ -7,7 +7,7 @@ public class PlayCards {
 	public static final int PLAYERS = 4;
 	public static final int SHUFFLE_COUNT = 100;
 
-	public static Deck deck;
+	private static Deck deck;
 	public static Hand[] hand;
 
 	PlayCards() {
