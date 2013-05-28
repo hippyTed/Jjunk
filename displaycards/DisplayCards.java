@@ -17,14 +17,14 @@ public class DisplayCards {
 		// Event dispatch thread
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				createMainWindow();
+				createMainWindowFrame();
 			}
 		});			
 	
 	}
 	
-	private static void createMainWindow() {
-		JFrame frame = new JFrame("DisplayCards");
+	private static void createMainWindowFrame() {
+		final JFrame frame = new JFrame("DisplayCards");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 		frame.add(new MainPanel());
@@ -41,7 +41,7 @@ class MainPanel extends JPanel {
 	
 	public MainPanel() {
 
-		PlayCards game = new PlayCards();		
+		final PlayCards game = new PlayCards();
 		game.dealCards(PlayCards.PLAYERS);
 		
 		for(int player = 1; player <= PlayCards.PLAYERS; player++)
